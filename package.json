@@ -8,9 +8,10 @@
     "server": "node ./server/server.js",
     "client": "cd client && npm start"
   },
-  "author": "",
+  "author": "Bruno Batista Soares",
   "license": "ISC",
   "dependencies": {
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "react": "^18.2.0"
   }
 }

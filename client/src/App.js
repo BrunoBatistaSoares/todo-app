@@ -1,8 +1,11 @@
-const App = () => {
+import ListHeader from "./components/listHeader";
+
+const app = () => {
   return (
-    <div>
+    <div className="app">
+      <ListHeader listName={'primeiraLista'} />
     </div>
   );
 }
 
-export default App;
+export default app;
