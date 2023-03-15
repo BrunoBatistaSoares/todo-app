@@ -10,9 +10,10 @@ app.get('/', (req, res) => {
 });
 
 //get all todos
-app.get('/todos', async (req,res) => {
+app.get('/todos', async (req, res) => {
     try {
-        await pool.query('SELECT * FROM todos')
+        const todos = await pool.query('SELECT * FROM todos')
+        res.json(todos.rows)
     } catch (err) {
         console.log(err);
     }
