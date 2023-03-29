@@ -1,11 +1,34 @@
 import ListHeader from "./components/listHeader";
+import { useEffect, useState } from 'react'
+import ListItem from "./components/listItem";
 
-const app = () => {
+const App = () => {
+  const userEmail = 'aa@aa'
+  const [tasks, editTasks] = useState(null)
+
+  const getData = async () => {
+    try {
+      const response = await fetch(`http://localhost:8000/todos/${userEmail}`)
+      const json = await response.json()
+      editTasks(json)
+    }
+    catch (err) {
+      console.log(err)
+    }
+
+  }
+
+  useEffect(() => getData, [])
+
+  const sortedTasks = tasks?.sort((a, b) => new Date(a.datee) - new Date(b.date))
+
+
   return (
     <div className="app">
       <ListHeader listName={'primeiraLista'} />
+      {sortedTasks?.map((task) => <ListItem key={task.id} task={task} />)}
     </div>
   );
 }
 
-export default app;
+export default App;
