@@ -1,16 +1,24 @@
 import { useState } from "react"
 
-const Modal = () => {
+const Modal = ({ mode, setShowModal, task }) => {
 
-    const mode = 'edit'
     const editMode = mode === 'edit' ? true : false
 
     const [data, setData] = useState({
-        userEmail: "",
-        title: "",
-        progress: "",
+        userEmail: editMode ? task.userEmail : null,
+        title: editMode ? task.title : null,
+        progress: editMode ? task.progress : 50,
         date: editMode ? "" : new Date()
     })
+
+    const postData = () => {
+        try {
+            fetch()
+        }
+        catch (err) {
+            console.error(err)
+        }
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -23,7 +31,7 @@ const Modal = () => {
             <div className="modal">
                 <div>
                     <h3>lets {mode} your task</h3>
-                    <button>X</button>
+                    <button onClick={() => setShowModal(false)}>X</button>
                 </div>
                 <form>
                     <input
