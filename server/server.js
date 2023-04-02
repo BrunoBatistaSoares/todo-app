@@ -1,4 +1,4 @@
-//npm i cors bcrypt jsonwebtoken uuid dotenv pg
+//npm i bcrypt jsonwebtoken uuid 
 
 const PORT = process.env.PORT ?? 8000;
 const express = require('express');
@@ -23,6 +23,8 @@ app.get('/todos/:userEmail', async (req, res) => {
         console.error(err);
     }
 })
+
+/* create a new todo */
 
 app.get('/todos', async (req, res) => {
     console.log(req)
