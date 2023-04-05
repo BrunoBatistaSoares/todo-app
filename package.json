@@ -2,15 +2,15 @@
   "name": "todo-app",
   "version": "1.0.0",
   "description": "React Node Postgres",
-  "main": "index.js",
   "scripts": {
     "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
     "server": "node ./server/server.js",
     "client": "cd client && npm start"
   },
-  "author": "",
+  "author": "Bruno Batista Soares",
   "license": "ISC",
   "dependencies": {
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "uuid": "^9.0.0"
   }
 }
